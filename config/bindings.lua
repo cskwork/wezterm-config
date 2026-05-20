@@ -1,6 +1,7 @@
 local wezterm = require('wezterm')
 local platform = require('utils.platform')
 local backdrops = require('utils.backdrops')
+local sidebar = require('events.sidebar')
 local act = wezterm.action
 
 local mod = {}
@@ -173,6 +174,10 @@ local keys = {
          backdrops:toggle_focus(window)
       end)
    },
+
+   -- sidebar: pane list panel + fuzzy switcher
+   { key = 'e', mods = mod.SUPER,        action = sidebar.toggle_action },
+   { key = 'p', mods = mod.SUPER,        action = sidebar.switcher_action },
 
    -- panes --
    -- panes: split panes
