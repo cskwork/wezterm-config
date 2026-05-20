@@ -259,6 +259,22 @@ local mouse_bindings = {
       mods = 'CTRL',
       action = act.OpenLinkAtMouseCursor,
    },
+   -- 드래그/더블/트리플 클릭 선택 즉시 Clipboard에 복사
+   {
+      event = { Up = { streak = 1, button = 'Left' } },
+      mods = 'NONE',
+      action = act.CompleteSelectionOrOpenLinkAtMouseCursor('ClipboardAndPrimarySelection'),
+   },
+   {
+      event = { Up = { streak = 2, button = 'Left' } },
+      mods = 'NONE',
+      action = act.CompleteSelection('ClipboardAndPrimarySelection'),
+   },
+   {
+      event = { Up = { streak = 3, button = 'Left' } },
+      mods = 'NONE',
+      action = act.CompleteSelection('ClipboardAndPrimarySelection'),
+   },
 }
 
 ---@type Config
